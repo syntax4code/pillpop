@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<h1 style="color:#0085B2;"><% if flash.has?(:message) %>
+<%= flash[:message] %>
+<% end %></h1>
+
+<br>
+
+<h1 style="color:#0085B2;">Your Medications </h1>
+<hr>
+
+<div class="list-group-item">
+<table class="table table-striped custab">
+<thead>
+<tr>
+<th><h3> medication</h3></th>
+<th class="text-center"><h3> Action </h3></th>
+</tr>
+</thead>
+<% @medications.each do |medication| %>
+<tr>
+<td>
+<!--<h3><a  href="/medications/<%=medication.id%>"><%= medication.medication %></a></h3> -->
+<h3><a <%=medication.id%>"><%= medication.medication %></a></h3>
+</td>
+
+
+<td class="text-center"><a class='btn btn-info btn-xs' href="/medications/<%=medication.id%>/edit"><span class="glyphicon glyphicon-edit"></span>  Edit </a>
+
+<form action="/medications/<%= medication.id %>/delete" method="post">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete" name="delete" class="btn btn-danger btn-xs">
+</form>
+</td>
+</tr>
+<%end%>
+</div>
+</table>
+</div>
+<br>
+<br>
+
+<a href="/new" class="btn btn-lg btn-primary btn-block btn-signin">New Medication</a><br>
+<a href="/logout" class="btn btn-lg btn-primary btn-block btn-signin">Log Out</a>
+
+</div>
+</div>
+</div>
+</div>

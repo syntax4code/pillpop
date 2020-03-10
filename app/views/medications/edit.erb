@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<h1 style="color:#0085B2;"> Edit <%= @medication.medication %> </h1>
+<hr>
+<form action="/medications/<%=@medication.id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+<input type="text" class="form-control input-sm chat-input"name="medication" value="<%= @medication.medication%>" />
+</br>
+
+<div class="wrapper">
+<span class="group-btn">
+<input id= "medication" type="submit" value="Submit Changes" class="btn btn-primary btn-md"/>
+</span>
+</div>

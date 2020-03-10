@@ -1,3 +1,8 @@
 class User < ActiveRecord::Base
-    validates_presence_of :name, :email, :password
-  end
+
+  has_many :medications
+  has_secure_password
+  validates :username, presence: true
+  validates :email, presence: true
+
+end
